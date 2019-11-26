@@ -10,6 +10,8 @@ sudo apt install curl git wget expect -y
 mkdir -p ~/.vnc
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/xstartup.sample > ~/.vnc/xstartup
 
+sudo adduser --disabled-password --gecos "" ayeuser && (echo ayeuser:ayeaye | sudo chpasswd)
+
 prog=/usr/bin/vncpasswd
 mypass="q1w2e3"
 vpass="123456"
