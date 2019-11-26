@@ -1,6 +1,7 @@
 # ayevdi
 
 1. To setup execute
+Note: This is the original native ayevdi. Please see the updated docker based version.
 ```
 curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/setup-basic | bash -
 ```
