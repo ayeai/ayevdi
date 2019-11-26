@@ -1,0 +1,2 @@
+vncserver --kill :*
+vncserver --geometry 800x600
