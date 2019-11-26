@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Under GPL v2
+
+[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
+[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
+
+vncconfig -iconic &
+dbus-launch --exit-with-session mate-session &  
