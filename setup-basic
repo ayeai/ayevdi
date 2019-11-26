@@ -12,6 +12,7 @@ curl https://raw.githubusercontent.com/ayeai/ayevdi/master/xstartup.sample > ~/.
 
 prog=/usr/bin/vncpasswd
 mypass="q1w2e3"
+vpass="123456"
 
 /usr/bin/expect <<EOF
 spawn "$prog"
@@ -19,6 +20,12 @@ expect "Password:"
 send "$mypass\r"
 expect "Verify:"
 send "$mypass\r"
+expect "Would you like to enter a view-only password (y/n)?"
+send "y\r"
+expect "Password:"
+send "$vpass\r"
+expect "Verify:"
+send "$vpass\r"
 expect eof
 exit
 EOF
