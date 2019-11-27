@@ -11,7 +11,7 @@ docker pull ayeai/ayevdi:1574823955
 echo Setup the system inside the container
 docker container stop $(docker container ls -aq)
 docker container rm ayevdi
-docker run --name ayevdi -dt ayeai/ayevdi:1574823955
+docker run -p 6080:6080 --name ayevdi -dt ayeai/ayevdi:1574823955
 
 docker exec ayevdi apt update -y
 docker exec ayevdi apt upgrade -y
