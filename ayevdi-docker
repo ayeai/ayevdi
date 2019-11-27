@@ -11,10 +11,14 @@ docker pull ayeai/ayevdi:1574823955
 
 export ayeuid=$(expr $(id -u ${USER}) + 12345)
 export ayecntr=ayevdi_${ayeuid}
+export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
 docker container stop ${ayecntr}
 docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
 
-#Manual
-echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init | bash -) && exit\"" in the container 
-docker exec -it ${ayecntr} /bin/bash
+docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
+docker exec ${ayecntr} chmod 777 /ayevdi-init
+(docker exec ${ayecntr} /bin/bash -c /ayevdi-init > /dev/null 2>&1) &
+
+echo Your AyeVDI session is active at http://${extip}:${ayeuid}/vnc_auto.html
