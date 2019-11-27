@@ -1,12 +1,12 @@
 #!/bin/bash
-sudo apt update -qq
-sudo apt upgrade -qq
-sudo apt autoremove -qq
-#sudo apt install edubuntu-desktop -qq
-sudo apt install ubuntu-mate-desktop -qq
-sudo apt install shellinabox novnc apache2 -qq
-sudo apt install tigervnc-common tigervnc-xorg-extension tigervnc-standalone-server -qq
-sudo apt install curl git wget expect -qq
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt autoremove -y
+#sudo apt install edubuntu-desktop -y -q
+sudo apt install ubuntu-mate-desktop -y -q
+sudo apt install shellinabox novnc apache2 -y -q
+sudo apt install tigervnc-common tigervnc-xorg-extension tigervnc-standalone-server -y -q
+sudo apt install curl git wget expect -y -q
 mkdir -p ~/.vnc
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/xstartup.sample > ~/.vnc/xstartup
 
