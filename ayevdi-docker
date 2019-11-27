@@ -13,7 +13,7 @@ export ayeuid=$(expr $(id -u ${USER}) + 12345)
 export ayecntr=ayevdi_${ayeuid}
 docker container stop ${ayecntr}
 docker container rm ${ayecntr}
-docker run -p 6080:6080 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
+docker run -p ${ayeuid}:6080 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
 
 #Manual
 echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init | bash -) && exit\"" in the container 
