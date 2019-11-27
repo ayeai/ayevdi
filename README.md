@@ -1,5 +1,10 @@
 # ayevdi
 
+## AyeVDI in container
+```
+sudo apt update && curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
+```
+
 ## AyeVDI on host
 
 1. To setup execute
@@ -11,11 +16,6 @@ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi
 2. To start VDI execute
 ```
 curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init | bash -
-```
-
-## AyeVDI in container
-```
-curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
 ```
 
 ## Create docker image for AyeVDI
