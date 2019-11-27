@@ -8,15 +8,13 @@ sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
 sudo chmod g+rwx "$HOME/.docker" -R
 
 docker pull ayeai/ayevdi:1574823955
-echo Setup the system inside the container
-docker container stop $(docker container ls -aq)
-docker container rm ayevdi
-docker run -p 6080:6080 --name ayevdi -dt ayeai/ayevdi:1574823955
 
-docker exec ayevdi apt update -y
-docker exec ayevdi apt upgrade -y
-docker exec ayevdi apt auto-remove -y
+export ayeuid=$(expr $(id -u ${USER}) + 12345)
+export ayecntr=ayevdi_${ayeuid}
+docker container stop ${ayectr}
+docker container rm ${ayectr}
+docker run -p 6080:6080 --name ${ayectr} -dt ayeai/ayevdi:1574823955
 
 #Manual
 echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init | bash -) && exit\"" in the container 
-docker exec -it ayevdi /bin/bash
+docker exec -it ${ayectr} /bin/bash
