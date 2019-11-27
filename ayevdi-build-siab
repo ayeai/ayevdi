@@ -7,7 +7,7 @@ git clone https://github.com/ayeai/shellinabox && cd shellinabox
 #apt-get source shellinabox && cd shellinabox-2.20build1
 sudo apt install libssl1.0-dev -y
 autoreconf -i
-../configure && make
+./configure && make
 sudo apt install fakeroot libssl-dev -y
 dpkg-buildpackage -b
 popd
