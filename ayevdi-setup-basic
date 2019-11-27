@@ -2,7 +2,7 @@
 sudo apt update -y 
 sudo apt upgrade -y
 sudo apt autoremove -y
-sudo apt install edubuntu-desktop -y
+#sudo apt install edubuntu-desktop -y
 sudo apt install ubuntu-mate-desktop -y
 sudo apt install shellinabox novnc apache2 -y
 sudo apt install tigervnc-common tigervnc-xorg-extension tigervnc-standalone-server -y
