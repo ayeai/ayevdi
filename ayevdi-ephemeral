@@ -1,3 +1,6 @@
+sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo groupadd docker
 sudo groupadd docker
 uuid=ayeuser_$(date +%s)_$RANDOM
 sudo adduser --disabled-password --gecos "" ${uuid} && (echo ${uuid}:ayeye | sudo chpasswd)
