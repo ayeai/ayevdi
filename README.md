@@ -32,3 +32,9 @@ Note: This script requires user interaction. Push will only work with account au
 ```
 curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-gen-image | bash -
 ```
+## Load testing AyeVDI ephemeral mode with 200 simultaneous GUI users
+```
+(for n in {1..10}; do sudo apt update -y && curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash -; done) 2>/dev/null | grep vnc_auto > terms.txt
+cat terms.txt
+(for n in {1..190}; do sudo apt update -y && curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash -; done) 2>/dev/null | grep vnc_auto > terms.txt
+```
