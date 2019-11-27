@@ -18,5 +18,5 @@ docker exec ayevdi apt upgrade -y
 docker exec ayevdi apt auto-remove -y
 
 #Manual
-echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-setup-basic | bash -) && exit\"" in the container 
+echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init | bash -) && exit\"" in the container 
 docker exec -it ayevdi /bin/bash
