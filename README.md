@@ -15,7 +15,7 @@ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi
 
 ## AyeVDI in container
 ```
-docker pull ayeai/ayevdi
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
 ```
 
 ## Create docker image for AyeVDI
