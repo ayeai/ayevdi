@@ -1,9 +1,16 @@
 # ayevdi
 
 ## AyeVDI in container
+Note: Does not run inside a container
 ```
-sudo apt update && curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
 ```
+
+## AyeVDI in container with ephemeral user
+```
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash -
+```
+
 
 ## AyeVDI on host
 
