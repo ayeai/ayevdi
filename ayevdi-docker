@@ -11,4 +11,12 @@ docker pull ayeai/ayevdi:1574823955
 echo Setup the system inside the container
 docker container stop $(docker container ls -aq)
 docker container rm ayevdi
-docker run --name ayevdi -it ayeai/ayevdi:1574823955
+docker run --name ayevdi -dt ayeai/ayevdi:1574823955
+
+docker exec ayevdi apt update -y
+docker exec ayevdi apt upgrade -y
+docker exec ayevdi apt auto-remove -y
+
+#Manual
+echo Execute "\"apt install expect sudo curl wget git -y && (curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-setup-basic | bash -) && exit\"" in the container 
+docker exec -it ayevdi /bin/bash
