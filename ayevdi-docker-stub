@@ -1,12 +1,14 @@
 docker pull ayeai/ayevdi:1574823955
 
-export ayeuid=$(expr $(id -u ${USER}) + 12345)
+export ayeuid=$(expr $(id -u ${USER}) + 12345 + $RANDOM)
+export ayesid=$(expr $(id -u ${USER}) + 23456 + $RANDOM)
+
 export ayecntr=ayevdi_${ayeuid}
 export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 docker container stop ${ayecntr}
 docker container rm ${ayecntr}
-docker run -p ${ayeuid}:6080 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
+docker run -p ${ayeuid}:6080 -p ${ayesid}:6080 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
 docker exec ${ayecntr} chmod 777 /ayevdi-init
