@@ -38,3 +38,10 @@ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi
 cat terms.txt
 (for n in {1..190}; do sudo apt update -y && curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash -; done) 2>/dev/null | grep vnc_auto > terms.txt
 ```
+
+## Building
+
+### Shellinabox
+```
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-build-siab | bash -
+```
