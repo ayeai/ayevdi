@@ -1,7 +1,7 @@
 docker pull ayeai/ayevdi:1574823955
 
-export ayeuid=$(expr $(id -u ${USER}) + 12345 + $RANDOM)
-export ayesid=$(expr $(id -u ${USER}) + 23456 + $RANDOM)
+export ayeuid=$(expr $(id -u ${USER}) + 12345)
+export ayesid=$(expr $(id -u ${USER}) + 13456)
 
 export ayecntr=ayevdi_${ayeuid}
 export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
