@@ -13,6 +13,7 @@ docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevd
 #TODO: Fix this in image
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/shellinabox.sample
 docker exec ${ayecntr} cp shellinabox.sample /etc/default/shellinabox
+docker exec ${ayecntr} service shellinabox restart
 #### siab fix
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
