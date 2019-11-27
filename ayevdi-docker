@@ -1,0 +1,14 @@
+sudo apt install docker.io
+sudo systemctl enable docker
+
+sudo usermod  -aG docker $USER
+newgrp docker
+mkdir -p /home/"$USER"/.docker
+sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+sudo chmod g+rwx "$HOME/.docker" -R
+
+docker pull ayeai/ayevdi:1574823955
+echo Setup the system inside the container
+docker container stop $(docker container ls -aq)
+docker container rm ayevdi
+docker run --name ayevdi -it ayeai/ayevdi:1574823955
