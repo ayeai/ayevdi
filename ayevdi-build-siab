@@ -1,3 +1,4 @@
+mv ayebuild ayebuild_$(date +%s)
 mkdir ayebuild
 pushd ayebuild
 sudo apt update
