@@ -7,12 +7,12 @@ export ayesid=$(expr $(id -u ${USER}) + 15432)
 export ayecntr=ayevdi_${ayeuid}
 export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
-#docker container stop ${ayecntr}
-#docker container rm ${ayecntr}
+docker container stop ${ayecntr}
+docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-ayeuser-shell
-docker exec ${ayecntr} screen /home/ayeuser/ayevdi-ayeuser-shell
+docker exec -u ayeuser ${ayecntr} -d -m screen /home/ayeuser/ayevdi-ayeuser-shell
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 
