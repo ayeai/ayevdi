@@ -12,21 +12,5 @@ export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 #docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
-#TODO: Fix this in image
-docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/shellinabox.sample
-docker exec ${ayecntr} cp shellinabox.sample /etc/default/shellinabox
-#### siab fix
-
-#docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
-#docker exec ${ayecntr} chmod 777 /ayevdi-init
-#(docker exec ${ayecntr} /bin/bash -c /ayevdi-init > /dev/null 2>&1) &
-
-#sleep 2
-
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
-#echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
-
-#sleep 2
-
-echo docker exec ${ayecntr} service shellinabox restart > /dev/null 2>&1
 
