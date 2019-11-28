@@ -2,3 +2,7 @@ sudo apt update -y
 sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo groupadd docker
+
+mkdir -p ~/.ayevdi/
+touch ~/.ayevdi/ayevdi-ephemeral
+
