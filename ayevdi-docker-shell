@@ -12,6 +12,6 @@ export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
 docker exec ${ayecntr} bash -c "wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell"
-docker exec ${ayecntr} bash -c "cd && source /home/ayeuser/ayevdi-ayeuser-shell &"
+# docker exec ${ayecntr} bash -c "cd && source /home/ayeuser/ayevdi-ayeuser-shell &"
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 
