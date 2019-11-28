@@ -1,4 +1,4 @@
-docker pull ayeai/ayevdi:1574823955
+#docker pull ayeai/ayevdi:1574823955
 
 export ayeuid=$(expr $(id -u ${USER}) + 12345)
 export ayesid=$(expr $(id -u ${USER}) + 15432)
