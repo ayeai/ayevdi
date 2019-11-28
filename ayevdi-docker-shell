@@ -13,6 +13,7 @@ docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevd
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-ayeuser-shell
-docker exec -u ayeuser ${ayecntr} -d -m screen /home/ayeuser/ayevdi-ayeuser-shell
-echo Your AyeVDI console is active at http://${extip}:${ayesid}/
+docker exec ${ayecntr} -d -m screen /home/ayeuser/ayevdi-ayeuser-shell
+echo Only AyeVDI console is active at http://${extip}:${ayesid}/
+echo For GUI contact admin... Console is at http://${extip}:${ayesid}/
 
