@@ -11,16 +11,16 @@ docker container stop ${ayecntr}
 docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
-docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
-docker exec ${ayecntr} chmod 777 /ayevdi-init
-(docker exec ${ayecntr} /bin/bash -c /ayevdi-init > /dev/null 2>&1) &
+docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /home/ayeuser/
+docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-init
+(docker exec -u ayeuser ${ayecntr} /bin/bash -c /home/ayeuser/ayevdi-init > /dev/null 2>&1) &
 
 #TODO: Tune the wait needed for VDI to start. Ideally, fix it to wait on VDI state instead of blind wait
 for i in {1..10};do echo Waiting for VDI...;sleep 1; done
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-ayeuser-shell
-docker exec ${ayecntr} screen /home/ayeuser/ayevdi-ayeuser-shell
+docker exec -u ayeuser ${ayecntr} -d -m screen /home/ayeuser/ayevdi-ayeuser-shell
 #The last two lines must carry the urls for shell and gui terminals respectively
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
