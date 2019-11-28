@@ -1,0 +1,7 @@
+uuid=${USER}
+sudo adduser --disabled-password --gecos "" ${uuid} && (echo ${uuid}:ayeaye | sudo chpasswd)
+sudo usermod -aG sudo ${uuid}
+sudo usermod  -aG docker ${uuid}
+sudo mkdir -p /home/"${uuid}"/.docker
+sudo chown "${uuid}":"${uuid}" /home/"${uuid}"/.docker -R
+sudo chmod g+rwx /home/"${uuid}"/.docker -R
