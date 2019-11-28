@@ -11,14 +11,14 @@ docker container stop ${ayecntr}
 docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
-export cntr_id=$ayecntr
+export cntr_id=${ayecntr}
 export cntr_tag=$(date +%s)
 
 #Manually update and verify container
-docker exec -it ayevdi /bin/bash
+docker exec -it ${cntr_id} /bin/bash
 
-docker commit -m "Updated ayevdi" -a "Team AyeAI" $cntr_id ayeai/ayevdi:$cntr_tag
+docker commit -m "Updated ayevdi" -a "Team AyeAI" ${cntr_id} ayeai/ayevdi:${cntr_tag}
 
-docker images | grep $cntr_tag
+docker images | grep ${cntr_tag}
 docker login
-docker push ayeai/ayevdi:$cntr_tag
+docker push ayeai/ayevdi:${cntr_tag}
