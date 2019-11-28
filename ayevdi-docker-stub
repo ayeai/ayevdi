@@ -21,12 +21,13 @@ docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/maste
 docker exec ${ayecntr} chmod 777 /ayevdi-init
 (docker exec ${ayecntr} /bin/bash -c /ayevdi-init > /dev/null 2>&1) &
 
-echo Your AyeVDI console is active at http://${extip}:${ayesid}/
+#TODO: Tune the wait needed for VDI to start. Ideally, fix it to wait on VDI state instead of blind wait
 for i in {1..10};do echo Waiting for VDI...;sleep 1; done
 
-#The last two lines must carry the urls for shell and gui terminals respectively
-echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
-for i in {1..2};do sleep 1; done
+docker exec -u ayeuser -it ${ayecntr} bash -c "wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell"
+docker exec -u ayeuser -it ${ayecntr} bash -c "cd && source /home/ayeuser/ayevdi-ayeuser-shell"
 
-#docker exec ${ayecntr} service shellinabox restart > /dev/null 2>&1
+#The last two lines must carry the urls for shell and gui terminals respectively
+echo Your AyeVDI console is active at http://${extip}:${ayesid}/
+echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
 
