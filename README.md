@@ -47,6 +47,13 @@ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi
 ```
 
 ## Testing
+
+### Host
 ```
 shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4202 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && (curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash - ) 2>&1 | tee >(tail -2) >/dev/null >(awk -f /usr/share/ayevdi/ayerun.awk ) && bash -i'" --disable-ssl
+```
+
+### Container
+```
+shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4200 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && bash -i'" --disable-ssl
 ```
