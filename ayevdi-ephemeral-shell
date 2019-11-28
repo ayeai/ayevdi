@@ -1,7 +1,7 @@
 AYEVDIKEY=~/.ayevdi/
 if [ ! -f "$AYEVDIKEY" ]; then
     echo "$AYEVDIKEY does not exist; running basic setup"
-    curl https://raw.githubusercontent.com/ayeai/ayevdi/master/avevdi-ephemeral-setup | bash -
+    curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-setup | bash -
 fi
 
 uuid=ayeuser_$(date +%s)_$RANDOM
