@@ -1,7 +1,14 @@
 #sudo apt update -y
 #sudo apt install docker.io -y
 #sudo systemctl enable docker
-sudo groupadd docker
+#sudo groupadd docker
+
+AYEVDIKEY=~/.ayevdi/
+if [ ! -f "$AYEVDIKEY" ]; then
+    echo "$AYEVDIKEY does not exist; running basic setup"
+    curl https://raw.githubusercontent.com/ayeai/ayevdi/master/avevdi-ephemeral-setup | bash -
+fi
+
 uuid=ayeuser_$(date +%s)_$RANDOM
 sudo adduser --disabled-password --gecos "" ${uuid} && (echo ${uuid}:ayeaye | sudo chpasswd)
 sudo usermod -aG sudo ${uuid}
