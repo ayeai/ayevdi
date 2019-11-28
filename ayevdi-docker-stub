@@ -21,8 +21,10 @@ docker exec ${ayecntr} chmod 777 /ayevdi-init
 
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 for i in {1..10};do echo Waiting for VDI...;sleep 1; done
+
+#The last two lines must carry the urls for shell and gui terminals respectively
 echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
-for i in {1..2};do echo Waiting for VDI...;sleep 1; done
+for i in {1..2};do sleep 1; done
 
 #docker exec ${ayecntr} service shellinabox restart > /dev/null 2>&1
 
