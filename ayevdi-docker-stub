@@ -26,8 +26,9 @@ docker exec ${ayecntr} screen -d -m /home/ayeuser/ayevdi-ayeuser-shell
 for i in {1..3};do echo Waiting for VDI...;sleep 1; done
 
 #The last two lines must carry the urls for shell and gui terminals respectively
+clear
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 #silent sleep only - to let the shell connect
 sleep 2
-echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
+echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html        AyeVDI by AyeAI
 
