@@ -13,8 +13,8 @@ curl https://raw.githubusercontent.com/ayeai/ayevdi/master/xstartup.sample > ~/.
 sudo adduser --disabled-password --gecos "" ayeuser && (echo ayeuser:ayeaye | sudo chpasswd)
 
 prog=/usr/bin/vncpasswd
-mypass="q1w2e3"
-vpass="123456"
+export mypass="q1w2e3"
+export vpass="123456"
 
 /usr/bin/expect <<EOF
 spawn "$prog"
