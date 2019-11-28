@@ -14,6 +14,10 @@ docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevd
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} screen -d -m /home/ayeuser/ayevdi-ayeuser-shell
+
+#TODO: Tune the wait needed for VDI to start. Ideally, fix it to wait on VDI state instead of blind wait
+for i in {1..3};do echo Waiting for VDI...;sleep 1; done
+
 echo Only AyeVDI console is active at http://${extip}:${ayesid}/
 echo For GUI contact admin... Console is at http://${extip}:${ayesid}/
 
