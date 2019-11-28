@@ -1,0 +1,20 @@
+ayevdi_img_common=$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-image-common | bash -)
+docker pull ayeai/ayevdi:${ayevdi_img_common}
+
+export ayeuid=$(expr $(id -u ${USER}) + 12345)
+export ayesid=$(expr $(id -u ${USER}) + 15432)
+
+export ayecntr=ayevdi_${ayeuid}
+export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+
+export cntr_id=${ayecntr}
+export cntr_tag=$(date +%s)
+
+#Manually update and verify container
+docker exec -it ${cntr_id} /bin/bash
+
+docker commit -m "Updated ayevdi" -a "Team AyeAI" ${cntr_id} ayeai/ayevdi:${cntr_tag}
+
+docker images | grep ${cntr_tag}
+docker login
+docker push ayeai/ayevdi:${cntr_tag}
