@@ -1,4 +1,6 @@
-docker pull ayeai/ayevdi:1574932021
+ayevdi_img_common=$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-image-common | bash -)
+
+docker pull ayeai/ayevdi:${ayevdi_img_common}
 
 export ayeuid=$(expr $(id -u ${USER}) + 12345)
 export ayesid=$(expr $(id -u ${USER}) + 15432)
@@ -8,7 +10,7 @@ export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 #docker container stop ${ayecntr}
 #docker container rm ${ayecntr}
-docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:1574823955
+docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
 #TODO: Fix this in image
 #docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/shellinabox.sample
