@@ -1,5 +1,4 @@
 ayevdi_img_common=$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-image-common | bash -)
-
 docker pull ayeai/ayevdi:${ayevdi_img_common}
 
 export ayeuid=$(expr $(id -u ${USER}) + 12345)
@@ -8,14 +7,9 @@ export ayesid=$(expr $(id -u ${USER}) + 15432)
 export ayecntr=ayevdi_${ayeuid}
 export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
-#docker container stop ${ayecntr}
-#docker container rm ${ayecntr}
+docker container stop ${ayecntr}
+docker container rm ${ayecntr}
 docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
-
-#TODO: Fix this in image
-#docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/shellinabox.sample
-#docker exec ${ayecntr} cp shellinabox.sample /etc/default/shellinabox
-#### siab fix
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-init -P /
 docker exec ${ayecntr} chmod 777 /ayevdi-init
@@ -24,8 +18,8 @@ docker exec ${ayecntr} chmod 777 /ayevdi-init
 #TODO: Tune the wait needed for VDI to start. Ideally, fix it to wait on VDI state instead of blind wait
 for i in {1..10};do echo Waiting for VDI...;sleep 1; done
 
-docker exec -u ayeuser -it ${ayecntr} bash -c "wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell"
-docker exec -u ayeuser -it ${ayecntr} bash -c "cd && source /home/ayeuser/ayevdi-ayeuser-shell"
+docker exec ${ayecntr} bash -c "wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell"
+docker exec ${ayecntr} bash -c "cd && source /home/ayeuser/ayevdi-ayeuser-shell &"
 
 #The last two lines must carry the urls for shell and gui terminals respectively
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
