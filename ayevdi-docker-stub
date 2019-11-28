@@ -19,9 +19,10 @@ docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/maste
 docker exec ${ayecntr} chmod 777 /ayevdi-init
 (docker exec ${ayecntr} /bin/bash -c /ayevdi-init > /dev/null 2>&1) &
 
-#docker exec ${ayecntr} service shellinabox restart
-
 sleep 5
 
 echo Your AyeVDI console is active at http://${extip}:${ayesid}/
 echo Your AyeVDI GUI session is active at http://${extip}:${ayeuid}/vnc_auto.html
+
+docker exec ${ayecntr} service shellinabox restart > /dev/null 2>&1
+
