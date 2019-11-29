@@ -1,6 +1,13 @@
 # ayevdi
+Note: These instructions are based on Ubuntu 18.04 LTS which is supported until April 2023. Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
 
 ## Setup front-end
+Note: TBD - OST needed
+
+### Install packages
+```
+wget https://github.com/ayeai/ayevdi/releases/download/v0.1-alpha/shellinabox_2.21_amd64.deb && sudo dpkg -r shellinabox && sudo dpkg -i ./shellinabox_2.21_amd64.deb
+```
 
 ### Generate passphrase
 ```
