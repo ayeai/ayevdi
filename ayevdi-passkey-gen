@@ -1,0 +1,4 @@
+echo Enter passphrase and press Ctrl+D
+mkdir -p ${HOME}/.ayevdi
+mv ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s)
+cat | gpg --batch --passphrase delete-secret-keys -c - | uuencode - > ${HOME}/.ayevdi/ayepasskey
