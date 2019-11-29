@@ -16,10 +16,10 @@ gpg --generate-key
 ```
 export passfile=$(tempfile) && curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey-gen > ${passfile} && source ${passfile} && export passfile=$(date +%s)
 ```
-### Encode pool file
+### Configure pool nodes
 Note:Needed for each deployment
 ```
-cat ayevdi-pool-4203 | gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null | bash - ) -c - | uuencode - | uuencode -
+git clone https://github.com/ayeai/ayevdi && cd ayevdi && ls && echo Use the ayevdi-pool-create/copy/edit tools to configure
 ```
 ### Test RR scheduler
 Note:Replace port number in example below
