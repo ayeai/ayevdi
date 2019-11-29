@@ -1,5 +1,12 @@
 # ayevdi
 
+## Setup front-end
+
+### Generate passphrase
+```
+export passfile=$(tempfile) && curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey-gen > ${passfile} && source ${passfile} && export passfile=$(date +%s)
+```
+
 ## AyeVDI in container
 Note: Does not run inside a container
 ```
