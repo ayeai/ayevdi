@@ -8,10 +8,14 @@ Note: TBD - OST needed
 ```
 wget https://github.com/ayeai/ayevdi/releases/download/v0.1-alpha/shellinabox_2.21_amd64.deb && sudo dpkg -r shellinabox && sudo dpkg -i ./shellinabox_2.21_amd64.deb
 ```
-
 ### Generate passphrase
 ```
 export passfile=$(tempfile) && curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey-gen > ${passfile} && source ${passfile} && export passfile=$(date +%s)
+```
+### Test RR scheduler
+Note:Replace port number in example below
+```
+export ayeport=4203 && curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-pool-${ayeport} 2>/dev/null | uudecode | uudecode | gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null | bash - ) 2>/dev/null -d | awk -vstrobefile=${HOME}/.ayevdi/ayestrobe_${ayeport} "$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-sched-rr.awk 2>/dev/null)"
 ```
 
 ## AyeVDI in container
