@@ -1,22 +1,14 @@
-if [ "${2}" == "" ]
+if [ "${1}" == "" ]
 then
-    echo Usage: ayevdi-pool-edit from to
+    echo Usage: ayevdi-pool-edit port
 
-elif [ -e ${2} ]
+elif [ -e ${1} ]
 then
     echo Warning: Pool exists - to remove pool use git rm
-
 else
 
 export pooltemp=$(tempfile) &&\
 touch ayevdi-pool-${1} &&\
-touch ayevdi-pool-${2} &&\
-cat ayevdi-pool-${1} |\
-uudecode |\
-uudecode |\
-gpg --batch --passphrase \
-$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null |\
-bash - ) 2>/dev/null > ${pooltemp} &&\
 vi $pooltemp && cat ${pooltemp} |\
 gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null |\
 bash - ) -c - |\
