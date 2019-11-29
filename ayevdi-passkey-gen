@@ -4,6 +4,6 @@ mv ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s) &&\
 read -sp 'Enter passphrase:' \
 secret && echo ${secret} |\
 gpg --batch --passphrase \$\(${USER}\$${GROUPS}\)\$$(hostid)\
---delete-secret-keys -c - |\
+--generate-key -c - |\
 uuencode - > ${HOME}/.ayevdi/ayepasskey &&\
 date | tr ' :' '_$'
