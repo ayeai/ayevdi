@@ -6,7 +6,7 @@ Note: TBD - OST needed for scripted deployment of profiles and scenarios
 
 ### Install packages
 ```
-wget https://github.com/ayeai/ayevdi/releases/download/v0.1-alpha/shellinabox_2.21_amd64.deb && sudo dpkg -r shellinabox && sudo dpkg -i ./shellinabox_2.21_amd64.deb
+sudo apt install sharutils gpg && wget https://github.com/ayeai/ayevdi/releases/download/v0.1-alpha/shellinabox_2.21_amd64.deb && sudo dpkg -r shellinabox && sudo dpkg -i ./shellinabox_2.21_amd64.deb
 ```
 ### Generate keys
 ```
