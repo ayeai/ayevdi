@@ -1,9 +1,9 @@
 mkdir -p ${HOME}/.ayevdi &&\
-touch ${HOME}/.ayevdi &&\
+touch ${HOME}/.ayevdi/ayepasskey &&\
 mv ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s) &&\
 read -sp 'Enter passphrase:' \
 secret && echo ${secret} |\
 gpg --batch --passphrase \$\(${USER}\$${GROUPS}\)\$$(hostid)\
 --delete-secret-keys -c - |\
 uuencode - > ${HOME}/.ayevdi/ayepasskey &&\
-date | tr ' ' '_'
+date | tr ' :' '_$'
