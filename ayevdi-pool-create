@@ -2,7 +2,7 @@ if [ "${1}" == "" ]
 then
     echo Usage: ayevdi-pool-edit port
 
-elif [ -e ${1} ]
+elif [ -e ayevdi-pool-${1} ]
 then
     echo Warning: Pool exists - to remove pool use git rm
 else
@@ -13,8 +13,8 @@ vi $pooltemp && cat ${pooltemp} |\
 gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null |\
 bash - ) -c - |\
 uuencode - |\
-uuencode - > ayevdi-pool-${2} &&\
-git add ayevdi-pool-${2} &&\
+uuencode - > ayevdi-pool-${1} &&\
+git add ayevdi-pool-${1} &&\
 git commit -m "Updated pool $ayepool" &&\
 git push &&\
 export pooltemp=$RANDOM

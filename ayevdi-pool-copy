@@ -2,7 +2,7 @@ if [ "${2}" == "" ]
 then
     echo Usage: ayevdi-pool-edit from to
 
-elif [ -e ${2} ]
+elif [ -e ayevdi-pool-${2} ]
 then
     echo Warning: Pool exists - to remove pool use git rm
 
