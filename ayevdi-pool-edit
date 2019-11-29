@@ -1,4 +1,10 @@
+if ("${1}"=="")
+then
+    echo Usage: ayevdi-pool-edit port
+else
+
 export pooltemp=$(tempfile) &&\
+touch ayevdi-pool-${1} &&\
 cat ayevdi-pool-${1} |\
 uudecode |\
 uudecode |\
@@ -14,3 +20,5 @@ git add ayevdi-pool-4203 &&\
 git commit -m "Updated pool $ayepool" &&\
 git push &&\
 export pooltemp=$RANDOM
+
+fi
