@@ -1,3 +1,4 @@
 cat ~/.ayevdi/ayepasskey |\
 uudecode |\
-gpg --batch --passphrase delete-secret-keys -d 2>/dev/null
+gpg --batch --passphrase \$\(${USER}\$${GROUPS}\)\$$(hostid)\
+--delete-secret-keys -d 2>/dev/null
