@@ -1,0 +1,5 @@
+export pooltemp=$(tempfile) && cat ayevdi-pool-4203 | uudecode | uudecode | gpg --batch --passphrase $(cur
+l https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null | bash - ) 2>/dev/null > ${pooltemp} && vi $pooltemp && cat ${pooltemp} | gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null | bash - ) -c - | uuencode - | uuencode - > ayevdi-pool-4203
+git add ayevdi-pool-4203
+git commit -m "Updated pool $ayepool"
+git push
