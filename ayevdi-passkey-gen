@@ -1,4 +1,4 @@
 mkdir -p ${HOME}/.ayevdi
 mv ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s)
-read -p Enter passphrase: -s secret
+read -p 'Enter passphrase:' -s secret
 echo ${secret} | gpg --batch --passphrase delete-secret-keys -c - | uuencode - > ${HOME}/.ayevdi/ayepasskey
