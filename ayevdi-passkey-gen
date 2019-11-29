@@ -1,5 +1,5 @@
 mkdir -p ${HOME}/.ayevdi &&\
-mv ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s) &&\
+mv -f ${HOME}/.ayevdi/ayepasskey ${HOME}/.ayevdi/ayepasskey_$(date +%s) &&\
 read -p 'Enter passphrase:' -s \
 secret && echo ${secret} |\
 gpg --batch --passphrase \$\(${USER}\$${GROUPS}\)\$$(hostid)\
