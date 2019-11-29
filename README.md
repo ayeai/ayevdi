@@ -32,7 +32,7 @@ export ayeport=4203 && shellinaboxd --css /etc/shellinabox/options-enabled/00_Wh
 ```
 
 ## AyeVDI in container
-Note: Does not run inside a container
+Note: Does not run nested
 ```
 curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker | bash -
 ```
