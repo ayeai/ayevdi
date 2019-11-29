@@ -1,10 +1,11 @@
-if [ "${1}" == "" ]
+if [ "${2}" == "" ]
 then
-    echo Usage: ayevdi-pool-edit port
+    echo Usage: ayevdi-pool-edit from to
 else
 
 export pooltemp=$(tempfile) &&\
 touch ayevdi-pool-${1} &&\
+touch ayevdi-pool-${2} &&\
 cat ayevdi-pool-${1} |\
 uudecode |\
 uudecode |\
@@ -15,8 +16,8 @@ vi $pooltemp && cat ${pooltemp} |\
 gpg --batch --passphrase $(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-passkey 2>/dev/null |\
 bash - ) -c - |\
 uuencode - |\
-uuencode - > ayevdi-pool-${1} &&\
-git add ayevdi-pool-${1} &&\
+uuencode - > ayevdi-pool-${2} &&\
+git add ayevdi-pool-${2} &&\
 git commit -m "Updated pool $ayepool" &&\
 git push &&\
 export pooltemp=$RANDOM
