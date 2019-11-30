@@ -117,5 +117,5 @@ screen -d -m shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ B
 
 ### Use Yandex-Disk for persistent storage
 ```
-export ayescript=$(tempfile) && https://github.com/ayeai/ayevdi/blob/master/ayevdi-disk-yandex -O ${ayescript} && source ${ayescript} && export ayescript=$(date +%s)
+export ayescript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-disk-yandex -O ${ayescript} && source ${ayescript} && export ayescript=$(date +%s)
 ```
