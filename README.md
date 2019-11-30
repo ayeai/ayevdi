@@ -72,9 +72,13 @@ cat terms.txt
 
 ## Building
 
-### Shellinabox
+### Shellinabox compilation
 ```
 curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-build-siab | bash -
+```
+### Shellinabox installation
+```
+sudo dpkg -r shellinabox && sudo dpkg -i ayebuild/shellinabox_2.21_amd64.deb
 ```
 
 ## Testing
