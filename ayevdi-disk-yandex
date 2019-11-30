@@ -1,0 +1,31 @@
+prog="/usr/bin/yandex-disk"
+
+if [ -e ${HOME}/ayework/Yandex.Disk ]
+then
+    echo Yandex.Disk exists
+    $prog "start"
+else
+
+read -p "Username: " uuid
+read -s -p "Password: " upwd
+
+mkdir -p ${HOME}/ayework/
+/usr/bin/expect <<EOF
+spawn "$prog" "setup"
+expect "Would you like to use a proxy server?"
+send "n\r"
+expect "Enter username:"
+send "$uuid\r"
+expect "Enter password:"
+send "$upwd\r"
+expect "/Yandex.Disk'):"
+send "${HOME}/ayework/Yandex.Disk\r"
+expect "Would you like Yandex.Disk to launch on startup?"
+send "y\r"
+expect eof
+exit
+EOF
+
+$prog "start"
+
+fi
