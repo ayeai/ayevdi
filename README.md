@@ -23,6 +23,8 @@ curl https://github.com/ayeai/ayevdi/blob/master/ayevdi-node-setup | bash -
 ```
 Caution: Please backup your data including server / system configuartion prior to executing any of the software / tools given on this page. There are no warranties whatsoever and you are using these software / tools at your own risk, subject to GNU GPL v2 license and applicable copyright notices.
 
+Great! Congratulations. You have AyeVDI working on your system now. Just point your browser to your server and start using AyeVDI.
+
 ## Setup front-end
 Note: TBD - OST needed for scripted deployment of profiles and scenarios
 
