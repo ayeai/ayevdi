@@ -3,11 +3,12 @@
 
 BEGIN        {
                srand(seed); 
-               ready=0; 
-               over=0;
+#              ready=0; 
+#              over=0;
              }
 
 # Presumption warning: This script presumes that there will be only one module block referenced
+# TODO: Add more contextual parsing
 /\/IfModule/ {
                for (i=10000; i<=65000; i++)
                {
