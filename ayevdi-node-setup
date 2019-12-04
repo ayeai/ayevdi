@@ -7,13 +7,11 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 sudo a2enmod ssl
 sudo ln -sf /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/
-#Enable apache ssl with self signed certificate
 
-sudo systemctl restart apache2
-sudo systemctl enable apache2
+#TODO: Enable apache ssl with self signed certificate
+#
 
-curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-host-user-setup | bash -
-
+#setup proxypass entries with port masking for security
 export tmpscript=$(tempfile) &&\
 export tmpconf=$(tempfile) &&\
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-proxy-setsalt.awk >${tmpscript} 2>//dev/null &&\
@@ -23,3 +21,12 @@ sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-availab
 sudo cp -f ${tmpconf} /etc/apache2/sites-available/default-ssl.conf &&\
 export tmpscript=$(date +%s) &&\
 export tmpconf=$(date +%s)
+
+#restart apache and enable apache for automatic startup
+sudo systemctl restart apache2
+sudo systemctl enable apache2
+
+#prepare current user for aministering ayevdi
+#TODO: No sudo access should be needed beyond this point unless upgrading
+curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-host-user-setup | bash -
+
