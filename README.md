@@ -1,8 +1,31 @@
 # ayevdi
 Note: These instructions are based on Ubuntu 18.04 LTS which is supported until April 2023. Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
 
+## Simple introduction !!
+While we wait for more descriptive articles to be written, here's some quick information on how to get started. AyeVDI is a virtuaized desktop IaaS. The core objective of AyeVDI is to deliver seamless application, desktop and service virtualization including HPC. We aspire to offer optimal and hardened convergence of VDI and HPC with utmost fluidity in user experience.
+
+The core of AyeVDI consists of containers running domain targeted and role / scenario specific images. These are currently run on docker but the abstraction design allows for other containerization platforms to be used as well, such as our upcoming AyeCons platform. With OCI standards in vogue, compliant container platforms from any vendor / project suffice for the core functionality. As one implementation of our abstraction layer, the AyeVDI core functionality will be offered as Kubernetes pods as well - but thats for one of the next upcoming releases subject to project constraints. All our images for the containers are hosted on dockerhub and other public image registeries.
+
+The core is encapsulated into AyeVDI nodes. AyeVDI nodes are essentially the minimal concrete units of compute, storage and I/O. As of the current release we are treating server nodes as the only nodes, but the configuration granularity is being refined incrementally.  
+
+The nodes stand behind load balancers which keep the service levels optimal.
+
+The highest level abstraction is of the zoners - AI based optimizers for AyeVDI, which are also in the pipeline for near future releases.
+
+## Quick start guide
+
+### 1 step setup - takes less than 5 mins (unless you are accessing internet from a Mars settlement!)
+Copy the following command and execute on a Ubuntu 18.04 LTS system. It can be on cloud or an on-premise (private) system. AyeVDI scales across all scenarios. (We will show you soon how AyeVPN allows you to create a hybrid cloud based deployment easily- though that's another "coming soon" feature). (Note: For defence and other non internet use cases we are rolling out DVD and BlueRay releases, subject to legal compliance)
+
+So get going - just copy the following command onto an internet connected system 
+```
+https://github.com/ayeai/ayevdi/blob/master/ayevdi-node-setup
+```
+
 ## Setup front-end
 Note: TBD - OST needed for scripted deployment of profiles and scenarios
+
+## The immediate next sections are being captured into OSTs (one step tricks). Please skip ahead to launching the server
 
 ### Install packages
 ```
