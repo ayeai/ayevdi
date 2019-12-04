@@ -21,8 +21,9 @@ Copy the following command and execute on a Ubuntu 18.04 LTS system. It can be o
 
 So get going - just copy the following command onto an internet connected system 
 ```
-curl https://github.com/ayeai/ayevdi/blob/master/ayevdi-node-setup | bash -
+curls https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-setup | bash -
 ```
+
 Caution: Please backup your data including server / system configuartion prior to executing any of the software / tools given on this page. There are no warranties whatsoever and you are using these software / tools at your own risk, subject to GNU GPL v2 license and applicable copyright notices.
 
 Great! Congratulations. You have AyeVDI working on your system now. Just point your browser to your server and start using AyeVDI.
