@@ -19,8 +19,9 @@ Copy the following command and execute on a Ubuntu 18.04 LTS system. It can be o
 
 So get going - just copy the following command onto an internet connected system 
 ```
-https://github.com/ayeai/ayevdi/blob/master/ayevdi-node-setup
+curl https://github.com/ayeai/ayevdi/blob/master/ayevdi-node-setup | bash -
 ```
+Caution: Please backup your data including server / system configuartion prior to executing any of the software / tools given on this page. There are no warranties whatsoever and you are using these software / tools at your own risk, subject to GNU GPL v2 license and applicable copyright notices.
 
 ## Setup front-end
 Note: TBD - OST needed for scripted deployment of profiles and scenarios
