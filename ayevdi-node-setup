@@ -30,3 +30,17 @@ sudo systemctl enable apache2
 #TODO: No sudo access should be needed beyond this point unless upgrading
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-host-user-setup | bash -
 
+#build, install and daemonize shell server
+curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-build-siab | bash - && sudo dpkg -r shellinabox && sudo dpkg -i ayebuild/shellinabox_2.21_amd64.deb  && shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4203 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && (curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-shell | bash - ) 2>&1 | tee >(tail -2) >/dev/null >(awk -f /usr/share/ayevdi/ayerun.awk ) && bash -i'" --disable-ssl
+
+#daemonize gui server
+screen -d -m shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4202 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && (curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral | bash - ) 2>&1 | tee >(tail -2) >/dev/null >(awk -f /usr/share/ayevdi/ayerun.awk ) && bash -i'" --disable-ssl
+
+#TBD
+#Add garbage collector
+#Add policy enforcer - compute, memory, io and usage time
+#Harden access loggers
+#Add preload support
+#Add configuration load from repository (curl) support for policies
+#Add management interfaces
+#Add upport for auto-start daemon - needed for node life cycle management
