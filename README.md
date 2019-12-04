@@ -1,4 +1,4 @@
-# ayevdi
+# AyeVDI - Virtualized Deployment Infrastructure as a Service
 Note: These instructions are based on Ubuntu 18.04 LTS which is supported until April 2023. Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
 
 ## Simple introduction !!
