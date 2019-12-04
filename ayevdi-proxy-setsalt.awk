@@ -11,10 +11,10 @@ BEGIN        {
 /\/IfModule/ {
                for (i=10000; i<=65000; i++)
                {
-                 r= 3999 * (1+rand());
+                 r= 0x11ffff * (1+rand());
                  printf "\t <Location /ay%06x1n%06x>\n\t\tProxyPass http://127.0.0.1:%d/\n\t</Location>\n",
-                   0xeedfba - i*2-r, 
-                   0xfdebca - i*2+r, i;
+                   0xeedfba - i*179-r, 
+                   0xfdebca - i*179+r, i;
                }
                  print $0;
                  next;
