@@ -14,6 +14,12 @@ sudo systemctl enable apache2
 
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-host-user-setup | bash -
 
-
-
-sudo vi /etc/apache2/sites-enabled/default-ssl.conf 
+export tmpscript=$(tempfile) &&\
+export tmpconf=$(tempfile) &&\
+curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-proxy-setsalt.awk >${tmpscript} 2>//dev/null &&\
+cat /etc/apache2/sites-enabled/default-ssl.conf |\
+awk -f ${tmpscript} > ${tmpconf} &&\
+sudo cp /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.$(date +%s) &&\
+sudo cp -f ${tmpconf} /etc/apache2/sites-available/default-ssl.conf &&\
+export tmpscript=$(date +%s) &&\
+export tmpconf=$(date +%s)
