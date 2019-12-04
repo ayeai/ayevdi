@@ -1,0 +1,19 @@
+#install basic tools
+sudo apt install htop curl wget expect screen gawk
+
+#install apache and enable necessary modules
+sudo apt install apache2
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod ssl
+sudo ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/
+#Enable apache ssl with self signed certificate
+
+sudo systemctl restart apache2
+sudo systemctl enable apache2
+
+curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-host-user-setup | bash -
+
+
+
+sudo vi /etc/apache2/sites-enabled/default-ssl.conf 
