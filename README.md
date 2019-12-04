@@ -1,5 +1,5 @@
 # AyeVDI - Virtualized Deployment Infrastructure as a Service
-Note: These instructions are based on Ubuntu 18.04 LTS which is supported until April 2023. Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
+Note: These instructions are based on Ubuntu 18.04 LTS which is supported by Canonical until April 2023 (TBD give reference). Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
 
 ## Simple introduction !!
 While we wait for more descriptive articles to be written, here's some quick information on how to get started. AyeVDI is a virtuaized desktop IaaS. The core objective of AyeVDI is to deliver seamless application, desktop and service virtualization including HPC. We aspire to offer optimal and hardened convergence of VDI and HPC with utmost fluidity in user experience.
