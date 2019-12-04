@@ -23,4 +23,7 @@ BEGIN        {
 /.*/         {
                print $0;
              }
-             
+
+#validate:
+#| grep Location | cut -d'/' -f2 | cut -d'>' -f1 | grep -v Location | sed 's/ay/0x/g;s/1n/ 0x/g' | awk '{a=0xeedfba - strtonum($1); b=0xfdebca - strtonum($2); r=(b-a-1)/2; x=(a+r)/179; print $0, a,b,r,x}' | less
+#pipe through above filter to recreate port numbers in rightmost column
