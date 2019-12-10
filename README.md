@@ -165,6 +165,7 @@ screen -d -m bash -c 'while [ 1 ]; do sleep 60; export tmpscript=$(tempfile) && 
 ### Use Yandex-Disk for persistent storage
 ```
 export ayescript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-disk-yandex -O ${ayescript} && source ${ayescript} && export ayescript=$(date +%s)
+```
 
 ## Internship projects
 
@@ -172,4 +173,4 @@ export ayescript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/aye
 See the link https://zwischenzugs.com/2016/08/29/bash-to-python-converter/ and convert the sripts here
 
 ### Convert to Perl, Javascript / Node.js
-```
+
