@@ -9,7 +9,8 @@ export extip=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
 
 docker container stop ${ayecntr}
 docker container rm ${ayecntr}
-docker run -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
+export ayetime_label="ayetime="$(date +%s)
+docker run -l ${ayetime_label} -p ${ayeuid}:6080 -p ${ayesid}:4200 --name ${ayecntr} -dt ayeai/ayevdi:${ayevdi_img_common}
 
 docker exec ${ayecntr} wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ayeuser-shell -O /home/ayeuser/ayevdi-ayeuser-shell
 docker exec ${ayecntr} chmod 777 /home/ayeuser/ayevdi-ayeuser-shell
