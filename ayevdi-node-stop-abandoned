@@ -1,0 +1,27 @@
+# Copyright (C) 2019 Abhishek Choudhary
+# Released un GNU GPL v3 only
+
+for n in $(docker ps -q)
+do
+  docker exec -it ${n} apt install lsof -y > /dev/null
+  export est=$(docker exec -it ${n} lsof -ai tcp | grep ESTABLISHED | wc -l)
+  export vnc=$(docker exec -it ${n} lsof -ai tcp | grep vnc | wc -l)
+  export usr=$(docker exec -it ${n} users | wc -l)
+  echo ${n} vnc=${vnc} est=${est} usr=${usr}
+  if [ ${vnc} -gt 0 ]
+  then
+    if [ ${est} -lt 1 ]
+    then
+      docker stop ${n}
+      echo Stopping abandoned container ${n}
+      #TODO:else log IP
+    fi
+  else
+    if [ ${usr} -lt 1 ]
+    then
+      docker stop ${n}
+      echo Stopping abandoned container ${n}
+      #TODO:else log IP
+    fi
+  fi
+done
