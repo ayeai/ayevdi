@@ -153,7 +153,9 @@ screen -d -m shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ B
 ```
 screen -d -m shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4203 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && (curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-shell | bash - ) 2>&1 | tee >(tail -2) >/dev/null >(awk -f /usr/share/ayevdi/ayerun.awk ) && bash -i'" --disable-ssl
 ```
-###
+
+### Daemonize abandoned container stopper
+TODO: Log IP addresses from where connections were recieved prior to stopping
 ```
 screen -d -m bash -c 'while [ 1 ]; do sleep 5; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayea/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
