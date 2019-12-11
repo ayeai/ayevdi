@@ -163,7 +163,7 @@ screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmp
 
 ### Daemonize policy for time based exit
 ```
-screen -S "policy-timer" -d -m bash -c "while [ 1 ]; do sleep 60; curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash - | awk -F',' -v timelimit=1800 '{if ($3 > timelimit) {system(\"sudo docker stop \" $1)}}'; done"
+screen -S "time-policy" -d -m bash -c "curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout | bash -"
 ```
 
 ## Administration and management
