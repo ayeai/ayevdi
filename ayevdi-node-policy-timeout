@@ -1,0 +1,25 @@
+# (C) Copyright 2019 Abhishek Choudhary
+# Released under GNU GPL v2 license
+
+export timelimit=150 && while [ 1 ]; do sleep 30;
+curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash - | tail -n +2 | awk -F',' -v timelimit=${timelimit} '{
+  if ($3 > timelimit) {
+    system("sudo docker exec -itd " $1 " wall -n AyeVDI warning: Your current session timelimit has been exhausted. Session is being disconnected. Please refresh page to launch a new session.");
+    system("echo sudo docker exec -it " $1 " ps -e | grep shellinaboxd");
+    print $1 ",stop attempted"
+  }
+  else {
+    if ( 60 >= (timelimit - $3) ) {
+      system("sudo docker exec -itd " $1 " wall -n AyeVDI warning: Your current session has less than 1 minute remaining. Please save your work.")
+    }
+    else {
+      if ( 120 >= (timelimit - $3)) {
+        system("sudo docker exec -itd " $1 " wall -n AyeVDI warning: Your current session has less than 2 minutes remaining. Please save your work.")
+      }
+      else {
+        print $1 "," (timelimit-$3) " remaining"
+      }
+    }
+  }
+}'
+done
