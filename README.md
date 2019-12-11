@@ -161,6 +161,13 @@ TODO: Log IP addresses from where connections were recieved prior to stopping
 screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
+## Administration and management
+
+### Find runtime statistics of containers
+```
+curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash -
+```
+
 ## User Utilities
 
 ### Use Yandex-Disk for persistent storage
