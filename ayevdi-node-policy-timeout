@@ -1,7 +1,7 @@
 # (C) Copyright 2019 Abhishek Choudhary
 # Released under GNU GPL v2 license
 
-export timelimit=300 && while [ 1 ]; do sleep 30;
+export timelimit=18111 && while [ 1 ]; do sleep 30;
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash - | tail -n +2 | awk -F',' -v timelimit=${timelimit} '{
   if ($3 > timelimit) {
     system("sudo docker exec -itd " $1 " wall -n AyeVDI warning: Your current session timelimit has been exhausted. Session is being disconnected. Please refresh page to launch a new session.");
