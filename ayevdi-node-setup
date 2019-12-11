@@ -43,6 +43,9 @@ curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi
 #Daemonize garbage collector (abandoned container stopper)
 screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 
+#Daemonize timer policy
+screen -S "time-policy" -d -m bash -c "curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout | bash -"
+
 #Daemonize shell service
 screen -S "shell-service" -d -m shellinaboxd --css /etc/shellinabox/options-enabled/00_White\ On\ Black.css -p 4203 -s "/:$(id -u):$(id -g):${PWD}:/bin/bash -c 'echo AyeVDI by https://ayeai.xyz && (curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-shell | bash - ) 2>&1 | tee >(tail -2) >/dev/null >(awk -f /usr/share/ayevdi/ayerun.awk ) && (while [ 1 ]; do printf "."; sleep 1; done) && (while [ 1 ]; do printf "."; sleep 1; done) && echo Server busy'" --disable-ssl
 
