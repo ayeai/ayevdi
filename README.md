@@ -161,6 +161,11 @@ TODO: Log IP addresses from where connections were recieved prior to stopping
 screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
+### Daemonize policy for time based exit
+```
+screen -S "policy-timer" -d -m bash -c "while [ 1 ]; do sleep 60; curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash - | awk -F',' -v timelimit=1800 '{if ($3 > timelimit) {system(\"sudo docker stop \" $1)}}'; done"
+```
+
 ## Administration and management
 
 ### Find runtime statistics of containers
