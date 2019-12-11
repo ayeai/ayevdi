@@ -1,4 +1,4 @@
-# AyeVDI - Virtualized Deployment IaSaC
+# AyeVDI - Virtualized Deployment IaaS
 (Infrastructure as a Service for Scientific and Cognitive Computing - IaaS2C2 -> IaaS2aC2 -> IaSaC)
 
 Note: These instructions are based on Ubuntu 18.04 LTS which is supported by Canonical until April 2023 (TBD give reference). Support of other distros, including future Ubuntu releases, is pertinent to resource availability.
