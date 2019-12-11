@@ -1,0 +1,35 @@
+#(c) Copyright 2019 Abhishek Choudhary
+# Released un GNU GPL v2 license
+
+(
+  sudo docker ps --format "{{.ID}} {{.RunningFor}} {{.Labels}}" |\
+  awk '{
+    if ( $4 == "hour" ) {
+      runtime=3600
+    }
+    else
+      if ( $4 == "minute") {
+        runtime=60
+      }
+      else
+        if ( $3 == "hours" ) {
+          runtime=3600 * $2
+        }
+      else
+        if ( $3 == "minutes" ) {
+          runtime=60 * $2
+        }
+      else {
+        runtime=$2
+      }; 
+      print $1 " " runtime
+    }' |\
+  awk -v ayetime=$(date +%s) -v quote=\" '{
+    cntr=$1;
+    docktime=$2;
+    printf cntr " " docktime " ";
+    system("sudo docker inspect " $1 " | grep ayetime | cut -d\\" quote " -f4 | xargs expr " ayetime " - ");
+    print ""
+  }' |\
+  tr -s '\n\r\ ' |\
+  awk 'BEGIN {print "ID,docktime,ayetime"};/.*/ {print $1 "," $2 "," ($3 + 0)}') 2>/dev/null
