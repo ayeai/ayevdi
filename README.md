@@ -168,6 +168,11 @@ screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmp
 curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-runstats | bash -
 ```
 
+### See active containers with labels
+```
+while [ 1 ]; do clear; sudo docker ps --format "{{.ID}} {{.Labels}}"; sleep 1; done
+```
+
 ## User Utilities
 
 ### Use Yandex-Disk for persistent storage
