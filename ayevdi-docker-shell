@@ -1,4 +1,7 @@
-ayevdi_img_common=$(curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-image-common | bash -)
+# (C) Copyright 2019 Abhishek Choudhary
+# Released under GNU GPL v2 license
+
+ayevdi_img_common=$(curl -N https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-image-common | tac | tac | bash -)
 docker pull ayeai/ayevdi:${ayevdi_img_common}
 
 export ayeuid=$(expr $(id -u ${USER}) + 12345)
