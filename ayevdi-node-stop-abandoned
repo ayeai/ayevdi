@@ -20,6 +20,7 @@ do
   if [ ${ayetime} -lt 120 ]
   then
     if [ ${docktime} -lt 60 ]
+    then
       continue
     fi
   fi
