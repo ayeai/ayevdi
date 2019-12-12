@@ -17,9 +17,11 @@ do
   # Under high usage it 'can' take a few minutes to provide VDI
   # We are setting a nominal value of 3 mins = 180 secs
   # TODO: Tune this parameter
-  if [ $(expr $ayetime + $docktime) -lt 180 ]
+  if [ ${ayetime} -lt 120 ]
   then
-    continue
+    if [ ${docktime} -lt 60 ]
+      continue
+    fi
   fi
 
   docker exec -it ${n} apt install lsof -y > /dev/null
