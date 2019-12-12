@@ -8,4 +8,4 @@ mkdir -p /home/"$USER}"/.docker
 sudo chown "${USER}":"${USER}" /home/"$USER"/.docker -R
 sudo chmod g+rwx "/home/"$USER}"/.docker" -R
 
-curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker-stub | sudo -u ${USER} bash -
+curl -N https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker-stub | tac | tac | sudo -u ${USER} bash -
