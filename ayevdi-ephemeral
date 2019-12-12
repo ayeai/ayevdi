@@ -1,7 +1,7 @@
 AYEVDIKEY=~/.ayevdi/
 if [ ! -f "$AYEVDIKEY" ]; then
     echo "$AYEVDIKEY does not exist; running basic setup"
-    curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-setup | bash -
+    curl -N https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-ephemeral-setup | tac | tac | bash -
 fi
 
 export uuid=ayeuser_$(date +%s)_$RANDOM
@@ -11,4 +11,4 @@ sudo usermod  -aG docker ${uuid}
 sudo mkdir -p /home/"${uuid}"/.docker
 sudo chown "${uuid}":"${uuid}" /home/"${uuid}"/.docker -R
 sudo chmod g+rwx /home/"${uuid}"/.docker -R
-curl -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker-stub | sudo -u ${uuid} bash - 
+curl -N https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-docker-stub | tac | tac | sudo -u ${uuid} bash - 
