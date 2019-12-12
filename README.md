@@ -158,12 +158,12 @@ screen -S "shell-service" -d -m shellinaboxd --css /etc/shellinabox/options-enab
 ### Daemonize abandoned container stopper
 TODO: Log IP addresses from where connections were recieved prior to stopping
 ```
-screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 5; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
+screen -S "garbage-collector" -d -m bash -c 'while [ 1 ]; do sleep 60; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
 ### Daemonize policy for time based exit
 ```
-screen -S "time-policy" -d -m bash -c "curl https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout | bash -"
+screen -S "time-policy" -d -m bash -c 'while [ 1 ]; do sleep 60; export timelimit=1899 && export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
 ## Administration and management
