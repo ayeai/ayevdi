@@ -14,7 +14,10 @@ do
                     bash - |\
                     grep $n |\
                     cut -d',' -f3)
-  if [ $(expr $ayetime + $docktime) -lt 120 ]
+  # Under high usage it 'can' take a few minutes to provide VDI
+  # We are setting a nominal value of 3 mins = 180 secs
+  # TODO: Tune this parameter
+  if [ $(expr $ayetime + $docktime) -lt 180 ]
   then
     continue
   fi
