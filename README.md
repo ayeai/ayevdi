@@ -158,12 +158,12 @@ screen -S "ayevdi-service-shell" -d -m shellinaboxd --css /etc/shellinabox/optio
 ### Daemonize abandoned container stopper
 TODO: Log IP addresses from where connections were recieved prior to stopping
 ```
-screen -S "ayevdi-service-garbageCollector" -d -m bash -c 'while [ 1 ]; do sleep 30; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
+screen -S "ayevdi-service-garbageCollector" -d -m bash -c 'while [ 1 ]; do sleep 10; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-stop-abandoned -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
 ### Daemonize policy for time based exit
 ```
-screen -S "ayevdi-service-timePolicy" -d -m bash -c 'while [ 1 ]; do sleep 30; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout -O ${tmpscript} && sudo bash -c "export timelimit=1899 && source ${tmpscript}" && export tmpscript=$(date +%s); done'
+screen -S "ayevdi-service-timePolicy" -d -m bash -c 'while [ 1 ]; do sleep 10; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout -O ${tmpscript} && sudo bash -c "export timelimit=1899 && source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
 ## Administration and management
