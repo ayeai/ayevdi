@@ -28,4 +28,5 @@ echo AyeVDI by AyeAI
 echo http://${extip}:${ayesid}/ is the Shell console
 echo http://${extip}:${ayesid}/ only Shell console is live
 
-echo Connecting VDI... && (while [ 1 ]; do printf "."; sleep 1; done)
+echo Connecting VDI... 
+for n in {1..30}; do printf "."; sleep 1; done)
