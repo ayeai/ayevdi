@@ -1,0 +1,1 @@
+for n in $(sudo docker ps -q); do if [ 0 -lt $(sudo docker exec -it ${n} bash -c 'export DISPLAY=:1 && mate-screensaver-command -q' | tee >(grep 'is active') >(grep 'is inhibited') >/dev/null | wc -l) ]; then echo sudo docker stop $n; fi; done
