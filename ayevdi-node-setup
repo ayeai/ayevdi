@@ -1,5 +1,5 @@
 #install basic tools
-sudo apt install -y htop curl wget expect screen gawk
+sudo apt install -y htop curl wget expect screen gawk parallel
 
 #install apache and enable necessary modules
 sudo apt install -y apache2
