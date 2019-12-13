@@ -40,4 +40,4 @@ docker exec ${ayecntr} /bin/bash -c /home/ayeuser/ayevdi-init > /dev/null 2>&1
 echo http://${extip}:${ayeuid}/vnc_auto.html is the GUI console
 
 echo Connecting VDI... 
-for n in {1..30}; do printf "."; sleep 1; done)
+for n in {1..30}; do printf "."; sleep 1; done
