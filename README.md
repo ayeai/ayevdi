@@ -166,6 +166,11 @@ screen -S "ayevdi-service-garbageCollector" -d -m bash -c 'while [ 1 ]; do sleep
 screen -S "ayevdi-service-timePolicy" -d -m bash -c 'while [ 1 ]; do sleep 10; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-timeout -O ${tmpscript} && sudo bash -c "export timelimit=1899 && source ${tmpscript}" && export tmpscript=$(date +%s); done'
 ```
 
+### Daemonize policy for idle timeout
+```
+screen -S "ayevdi-service-timePolicy" -d -m bash -c 'while [ 1 ]; do sleep 10; export tmpscript=$(tempfile) && wget https://raw.githubusercontent.com/ayeai/ayevdi/master/ayevdi-node-policy-idle -O ${tmpscript} && sudo bash -c "source ${tmpscript}" && export tmpscript=$(date +%s); done'
+```
+
 ## Administration and management
 
 ### Find runtime statistics of containers
