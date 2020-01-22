@@ -20,5 +20,8 @@ AyeVDI :
             Project : This projects the output or the window itself into specified HMI/Device
                       Special Project option is to  mmaximise or project at the the window level
             Shrink :  This button shrinks the maximised window to its orginal size, or the Outer/Middle level to the size of inner layer.
-7) UI Webprofile
+7) HMI :
+    Input Layer
+    Output Layer
+
                       
