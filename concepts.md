@@ -22,6 +22,7 @@ AyeVDI :
             Shrink :  This button shrinks the maximised window to its orginal size, or the Outer/Middle level to the size of inner layer.
 7) HMI :
     Input Layer
+    Processing
     Output Layer
 
                       
