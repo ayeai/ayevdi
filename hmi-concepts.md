@@ -28,7 +28,33 @@ Number of containers added per HMI can be decided based on resources available (
     Users can save their work in their respective explorer accounts
     
   3) IDE (Integrated development environment)
+  #TODO : Explain IDE
   
+  4) ValidCV :
+  
+  5) Share : 
+      This feature is used for sharing the HMI/Console/Teminal/Gui or any other processes or features across various platforms
+        #TBD : Analyse the technical feasibility of sharing different features, at different layer, no.of that can times shared etc.. and what feasible platforms
+  6) Meet :
+   Meet used for video conferencing, meetings, webinars, recordings etc...
+7)Apps :
+  This will provide various applications according the user requirment/package. 
+  Currently available applications include :
+  Healthcare  : EMR / PHR / EHR with FHIR 
+                 Types :
+                 1 )JIT (Just in Time ) use :
+                       This type of use is for one time use, 
+                 2 ) Persistant use : For persistant and continous use
+                 
+      Voip Services
+                 
+  8) Labs :
+       AyeVDI provides a unique feature of acessing physical labs using online platforms.
+       The lab i integrated to online pltform using IoT, this becomes useful for AyeLeaarn course aspirants to have handson experience of the physical lab online
+  9) TnC : Terms and Conditions
+          
+                       
+                                            
  
      
                
