@@ -50,7 +50,7 @@ Number of containers added per HMI can be decided based on resources available (
                  
   8) Labs :
        AyeVDI provides a unique feature of acessing physical labs using online platforms.
-       The lab i integrated to online pltform using IoT, this becomes useful for AyeLeaarn course aspirants to have handson experience of the physical lab online
+       The lab backend lab is integrated to online platform using IoT, this becomes useful for AyeLeaarn course aspirants to have handson experience of the physical lab online
   9) TnC : Terms and Conditions
           
                        
