@@ -61,6 +61,10 @@ Number of containers added per HMI can be decided based on resources available (
     GUI : Our current version gives ubuntu mate theme based OS
     WebApp : Provides Webapp development platform
     
+    
+  Functionality Features :
+  Project , Float , Sink other function 
+  ( Reorganise from the previous article )
                                             
  
      
