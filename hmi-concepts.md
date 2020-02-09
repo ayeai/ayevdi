@@ -27,7 +27,7 @@ Number of containers added per HMI can be decided based on resources available (
     Currently we have Ayedesk as the explorer available, comming versions will bring other type of explorers.
     Users can save their work in their respective explorer accounts
     
-  3) IDE :
+  3) IDE (Integrated development environment)
   
  
      
