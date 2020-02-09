@@ -20,12 +20,18 @@ AyeVDI :
             Project : 1) Inter-HMI Project :  projection of results/ output/ processs from one HMI to another HMI  (HMI here caan bee any                         form of HMI (Devices, machine terminals etc...)
                       2) Intra-HMI project : This is the projection within the HMI from lower levels to higher levels ( often resizing with 
             Shrink :  This button shrinks the maximised window to its orginal size, or the Outer/Middle level to the size of inner layer.
-7) HMI :
-    Input Layer
-    Processing
-    Output Layer
+
     
- 8) Special Features/ tools :
-    AyeSEC : AyeSEC is a security enabling tool which currently is using SHA 512 encoding, AyeSEC in the next versions uses 'AyeUnSum' ( A special encoding system based on godelised Ashtadhyayi) and 'AyeHandSum'(An artful SHA Encoding system with hand emojis)
-    Sourcefrom : This tool get the information from the link provided
+ 7) Special Features/ tools :
+    a) AyeSEC :
+    AyeSEC is a security enabling tool which currently is using SHA 512 encoding, AyeSEC in the next versions uses 'AyeUnSum' ( It used NIRaddhaar (Normalised Indexed Reference) number in generating encoding system A special encoding system based on godelised Ashtadhyayi) and 'AyeHandSum'(An artful SHA Encoding system with hand emojis)
+    b)NIR : Normalised Index reference is 
+   b) Sourcefrom : This tool gets the information from the source throught interneet provided with it and executes its ex : Sourcefrom'https://bit.lyayevdi-image gen" this pulls the content from the link and executes it.( wget + execute)
+   c)Pushtoo :
+   d) Catfrom :
+   e) Synthesize :
+  
+  
+  
+   
    
