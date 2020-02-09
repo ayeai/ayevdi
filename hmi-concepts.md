@@ -54,6 +54,13 @@ Number of containers added per HMI can be decided based on resources available (
   9) TnC : Terms and Conditions
           
                        
+                       
+   Layer 3 :
+    On selecting the console the third layer gets displayed which consists of Terminal, GUI, WebApp
+    Terminal : Command line acesss shell(currently restricted to 4)
+    GUI : Our current version gives ubuntu mate theme based OS
+    WebApp : Provides Webapp development platform
+    
                                             
  
      
